@@ -1,4 +1,10 @@
-﻿(function (app) {
+﻿/**
+ * Controllher das Paginas de Pratos no cliente
+ */
+
+(function (app) {
+
+    //Cria controleller para paginas de Pratos
 
     var PratosController = function ($scope, $http, $location, PropriedadesCompartilhadas) {
 
@@ -15,6 +21,7 @@
 
         }
 
+        //Metodo Para carregar dados por API nesse caso Restaurantes
         $scope.CarregaDados = function () {
 
             if (PropriedadesCompartilhadas.getCadastro() == true) {
@@ -67,6 +74,7 @@
 
         }
 
+        //Metodo para buscar dados dos Pratos por API funcao GET
         $scope.AddPrato = function (Prato, RestauranteSel) {
 
             var baseUrl;
@@ -106,14 +114,14 @@
             }
         }
 
-
+        //Deleta o Prato no banco de dados via API
         $scope.DeletarPratos = function (Pratos) {
 
             var baseUrl;
 
             baseUrl = 'api/Pratos/' + $scope.idrestdelete;
 
-            console.log(baseUrl);
+          ;
 
             $http.delete(baseUrl).then(function (response) {
 

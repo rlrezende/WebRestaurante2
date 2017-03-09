@@ -1,4 +1,10 @@
-﻿(function (app) {
+﻿/**
+ * Controllher das Paginas de Restaurante no cliente
+ */
+
+(function (app) {
+
+    //Cria controller com metodos para ser ultilizado
 
     var restaurantesController = function ($scope, $http, $location,PropriedadesCompartilhadas) {
                 
@@ -10,6 +16,7 @@
            PropriedadesCompartilhadas.setItem(null);
        }
 
+        //Busca os Restaurantes no banco de dados atravez de API funca GET.
         $scope.BuscarRestaurantes = function (criterioDeBusca) {
 
             var baseUrl;
@@ -53,6 +60,7 @@
 
         }
 
+        //Adiciona Rsturante no Banco de dados Atrazes API POST E Altera pelo PUT
         $scope.AddRestaurante = function (Restaurante) {
 
             var baseUrl;
@@ -92,7 +100,7 @@
             }
         }
 
-
+        //Delete Restaurante no Banco de Dados por API delete
         $scope.DeletarRestaurantes = function (Restaurantes) {
 
             var baseUrl;

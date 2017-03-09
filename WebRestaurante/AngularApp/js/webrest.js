@@ -1,9 +1,10 @@
-﻿/// <reference path="C:\Projetos\WebRestaurante\WebRestaurante\Cliente/html/Pratos/Alterar.html" />
+﻿// Inicializa Angular
 
 (function () {
 
     var app = angular.module("webrest", ["ngRoute", "ngMessages"]);
 
+    //Serico para compartilhar informacao
     app.service('PropriedadesCompartilhadas', function () {
         var ItemSelecionado;
         var ItemCadastro;
@@ -70,6 +71,7 @@
             requireBase: false
         });
 
+        //Defina as routa no cliente sem precisar ir no servidor
         $routeProvider
         .when("/",
                { templateUrl: "/cliente/html/teste.html", controller: "homeController" })

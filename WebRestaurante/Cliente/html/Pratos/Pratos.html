@@ -1,0 +1,60 @@
+﻿<div class="jumbotron" ng-controller="PratosController">
+    <!-- Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalLabel">Excluir Prato</h4>
+                </div>
+                <div class="modal-body">Deseja realmente excluir este Prato? </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="DeletarPratos(Pratos)">Sim</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Pratos</h4>
+
+    <hr />
+
+    <a href="/Pratos/Cadastro">
+        <imput type="button"  ng-click="MarcaAdd()"  class="btn btn-success">Cadastrar novo Prato</imput>
+    </a>
+
+    <hr />
+    <hr />
+
+    <div id="list" class="row">
+        <div class="table-responsive col-md-12">
+
+            <table ng-show="Pratos.length > 0" class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+
+                        <th>ID</th>
+                        <th><a href="">RESTURANTE</a></th>
+                        <th><a href="">PRATO</a></th>
+                        <th><a href="">PREÇO</a></th>
+                        <th><a href="">AÇÕES</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  ng-repeat="Prato in Pratos ">
+                        <td>{{Prato.Id_Prato}}</td>
+                        <td>{{Prato.Restaurantes.Nome}}</td>
+                        <td>{{Prato.Nome}}</td>
+                        <td>{{Prato.Preco  | currency :'R$' }}</td>
+                        <td class="actions">
+                            <button type="button" class="btn btn-warning btn-xs" ng-click="EditPrato(Prato)">Editar</button>
+                            <a class="btn btn-danger btn-xs" ng-click="MarcaIDDelete(Prato.Id_Prato)"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                        </td>
+                    </tr>
+                <tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

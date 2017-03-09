@@ -1,0 +1,37 @@
+﻿<style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+        background-color: #78FA89;
+    }
+</style>
+
+<div class="container-fluid" ng-controller="restaurantesController">
+    <h3 class="page-header">Adicionar Restaurante</h3>
+ 
+    <form name="RestauranteForm" class="css-form" novalidate>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="campo1">Nome</label>
+                <input type="text" class="form-control" id="Nome"  ng-model="Restaurante.Nome" placeholder="Nome" required="" >
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="actions" class="row">
+            <div class="col-md-12">
+
+                <button class="btn btn-primary" ng-disabled="RestauranteForm.$invalid" ng-click="AddRestaurante(Restaurante)">Salvar</button>
+
+                <a href="/Restaurantes/">
+                    <imput type="button" class="btn btn-default">Canvelar</imput>
+                </a>
+
+            </div>
+        </div>
+    </form>
+
+</div>

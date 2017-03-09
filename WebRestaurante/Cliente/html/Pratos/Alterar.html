@@ -1,0 +1,57 @@
+﻿<style type="text/css">
+    .css-form input.ng-invalid.ng-touched {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-touched {
+        background-color: #78FA89;
+    }
+</style>
+
+
+<div id="main" class="container-fluid" ng-controller="PratosController" ng-init="CarregaDados()">
+
+    <h3 class="page-header">Alterar Prato</h3>
+
+    <form id="PratoForm" name="PratoForm" class="css-form" novalidate>
+
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="campo1">Restaurante</label>
+                <select class="form-control" ng-options="Restaurante.Id_restaurante as Restaurante.Nome  for Restaurante in Restaurantes" ng-model="Prato.id_Restaurante" ng-required="true"></select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="campo1">Nome1</label>
+                <input id="Nome" type="text" class="form-control" ng-model="Prato.Nome"  placeholder="Nome" required="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="campo1">Preço</label>
+                <input type="text" class="form-control" ng-model="Prato.Preco" format="number" ng-required="true" />
+            </div>
+        </div>
+
+        <hr />
+
+    </form>
+
+
+    <div id="actions" class="row">
+        <div class="col-md-12">
+
+            <button class="btn btn-primary" ng-disabled="PratoForm.$invalid && Prato.id_Restaurante == null" ng-click="AddPrato(Prato,RestauranteSel)">Salvar</button>
+
+            <a href="/Pratos/">
+                <imput type="button" class="btn btn-default">Canvelar</imput>
+            </a>
+
+        </div>
+    </div>
+
+</div>

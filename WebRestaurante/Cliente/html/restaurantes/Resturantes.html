@@ -1,0 +1,70 @@
+﻿<div ng-controller="restaurantesController">
+
+    <!-- Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalLabel">Excluir Restaurante</h4>
+                </div>
+                <div class="modal-body">Deseja realmente excluir este Restaurante? </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="DeletarRestaurantes(Restaurantes)" >Sim</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="jumbotron">
+    
+        <h4>Restaurantes</h4>
+
+        <form name="BuscarForm">
+            <input class="form-control" type="text" ng-model="criterioDeBusca"  placeholder="O que você está buscando?" />
+        </form>
+
+            <hr />
+            <p>
+                <!--Estava faltando esse span-->
+                <button type="button" class="btn btn-primary" ng-click="BuscarRestaurantes(criterioDeBusca)" ng-disabled="BuscarForm.$invalid">Pesquisar</button>
+                <a href="/Restaurantes/Cadastro">
+                    <imput type="button" class="btn btn-success">Cadastrar novo Restaurante</imput>
+                </a>
+
+         
+            </p>
+
+        <hr />
+        <hr />
+
+        <div id="list" class="row">
+            <div class="table-responsive col-md-12">
+
+                <table ng-show="Restaurantes.length > 0" class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+
+                            <th>ID</th>
+                            <th><a href="">NOME</a></th>
+                            <th><a href="">AÇÕES</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-class="{selecionado : cliente.selecionado}" ng-repeat="resturante in Restaurantes ">
+                           
+                            <td>{{resturante.Id_restaurante}}</td>
+                            <td>{{resturante.Nome}}</td>
+                            <td class="actions">
+                                <button type="button" class="btn btn-warning btn-xs" ng-click="EditRestaurante(resturante)">Editar</button>
+                                <a class="btn btn-danger btn-xs" ng-show="resturante.Pratos.length == 0" ng-click="MarcaIDDelete(resturante.Id_restaurante)"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                            </td>
+                        </tr>
+                    <tbody>
+</table>
+            </div>
+           </div>
+        </div>
+   
+ </div>
